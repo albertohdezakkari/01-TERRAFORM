@@ -1,0 +1,31 @@
+{
+  "id": "19",
+  "tabTitle": "19 — Proyecto integrador",
+  "title": "19 — Proyecto integrador Terraform",
+  "blocks": [
+    {"type":"OBJETIVOS","lines":["• Integrar los conceptos principales del cuaderno.","• Diseñar una infraestructura pequeña pero coherente.","• Utilizar VPC, subnets, Security Group, EC2, S3, variables y outputs.","• Revisar y destruir toda la infraestructura de forma controlada."]},
+    {"type":"INTRODUCCION","lines":["Este ejercicio no introduce una sintaxis principal nueva. Su objetivo es unir las piezas que ya conoces en un proyecto completo e independiente."]},
+    {"type":"DIAGRAMA","lines":["AWS","├── VPC 10.100.0.0/16","│   ├── subnet-publica 10.100.1.0/24","│   │   └── EC2","│   └── subnet-privada 10.100.2.0/24","├── Security Group","└── S3 bucket"]},
+    {"type":"PASO","lines":["1. Crea una carpeta terraform-19-proyecto-final."]},
+    {"type":"TERMINAL:GIT_BASH","lines":["mkdir terraform-19-proyecto-final","cd terraform-19-proyecto-final","code ."]},
+    {"type":"TERMINAL:POWERSHELL","lines":["mkdir terraform-19-proyecto-final","cd terraform-19-proyecto-final","code ."]},
+    {"type":"PASO","lines":["2. Organiza el proyecto."]},
+    {"type":"CODIGO","lines":["main.tf","variables.tf","outputs.tf","terraform.tfvars"]},
+    {"type":"CONCEPTO","lines":["¿Por qué separar archivos si Terraform lee todos los .tf juntos?","Porque la separación mejora legibilidad y mantenimiento, aunque Terraform trate todos los archivos .tf de la carpeta como una única configuración."]},
+    {"type":"PASO","lines":["3. Declara variables para region, vpc_cidr, subnet_publica_cidr, subnet_privada_cidr y nombre_proyecto."]},
+    {"type":"PASO","lines":["4. En main.tf crea:","• provider AWS","• VPC","• dos subnets","• Security Group","• data source para una AMI reciente","• una EC2 en la subnet pública","• un bucket S3 con nombre único"]},
+    {"type":"PASO","lines":["5. En outputs.tf muestra al menos:","• vpc_id","• ec2_id","• ec2_public_ip si existe","• bucket_name"]},
+    {"type":"COMANDO","lines":["terraform init","terraform fmt","terraform validate","terraform plan"]},
+    {"type":"RESULTADO_ESPERADO","lines":["El plan debe mostrar una infraestructura coherente y todas las dependencias resueltas antes de crear nada."]},
+    {"type":"PREGUNTA","lines":["¿Qué comando debes revisar con más atención antes de modificar AWS?"]},
+    {"type":"RESPUESTA","lines":["terraform plan, porque muestra los cambios previstos antes de apply."]},
+    {"type":"PASO","lines":["6. Aplica la infraestructura y comprueba los recursos desde AWS Console."]},
+    {"type":"COMANDO","lines":["terraform apply","terraform output"]},
+    {"type":"RETO","lines":["Cambia únicamente nombre_proyecto en terraform.tfvars y analiza qué recursos se modifican y cuáles permanecen iguales."]},
+    {"type":"SOLUCION","lines":["El resultado depende de dónde se utilice la variable. El objetivo es leer el plan y justificar cada cambio antes de aplicar."]},
+    {"type":"PASO","lines":["7. Destruye toda la infraestructura al terminar."]},
+    {"type":"COMANDO","lines":["terraform destroy"]},
+    {"type":"IDEA_CLAVE","lines":["Terraform permite describir una arquitectura completa, relacionar recursos, parametrizarla y revisar los cambios antes de aplicarlos."]},
+    {"type":"CHECKPOINT","lines":["He construido un proyecto Terraform completo y puedo explicar la función de cada recurso, referencia, variable, data source y output utilizado."]}
+  ]
+}
