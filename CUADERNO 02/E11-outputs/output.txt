@@ -1,0 +1,4 @@
+NO_VERIFICABLE: esta solución de referencia no ejecutó el comando contra una sesión AWS Academy. El archivo conserva la marca exigida por la rúbrica y no inventa una salida.
+Salida esperada tras apply:
+vpc_id = "vpc-..."
+vpc_cidr = "10.30.0.0/16"

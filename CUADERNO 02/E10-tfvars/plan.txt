@@ -1,0 +1,4 @@
+NO_VERIFICABLE: esta solución de referencia no ejecutó el comando contra una sesión AWS Academy. El archivo conserva la marca exigida por la rúbrica y no inventa una salida.
+Comandos esperados:
+terraform plan -no-color -var-file="dev.tfvars"
+terraform plan -no-color -var-file="test.tfvars"

@@ -1,0 +1,3 @@
+NO_VERIFICABLE: esta solución de referencia no ejecutó el comando contra una sesión AWS Academy. El archivo conserva la marca exigida por la rúbrica y no inventa una salida.
+Comando esperado: terraform plan -no-color
+Resultado esperado: una instancia EC2 a crear usando la AMI consultada por data source.

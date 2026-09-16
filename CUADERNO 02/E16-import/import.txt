@@ -1,0 +1,5 @@
+NO_VERIFICABLE: esta solución de referencia no ejecutó el comando contra una sesión AWS Academy. El archivo conserva la marca exigida por la rúbrica y no inventa una salida.
+Comando de referencia:
+terraform import aws_vpc.vpc_importada vpc-XXXXXXXX
+Después: terraform state list
+Resultado esperado: aws_vpc.vpc_importada

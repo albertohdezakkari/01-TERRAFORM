@@ -1,0 +1,2 @@
+NO_VERIFICABLE: esta solución de referencia no ejecutó el comando contra una sesión AWS Academy. El archivo conserva la marca exigida por la rúbrica y no inventa una salida.
+Escenario esperado tras haber aplicado previamente Name = "vpc-original": el plan mostraría una modificación (~) de la etiqueta Name, no una segunda VPC.

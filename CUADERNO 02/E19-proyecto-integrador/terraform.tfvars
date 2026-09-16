@@ -1,0 +1,5 @@
+vpc_cidr            = "10.100.0.0/16"
+subnet_publica_cidr = "10.100.1.0/24"
+subnet_privada_cidr = "10.100.2.0/24"
+nombre_proyecto     = "tf01-integrador"
+bucket_name         = "tf01-integrador-solucion-2026"

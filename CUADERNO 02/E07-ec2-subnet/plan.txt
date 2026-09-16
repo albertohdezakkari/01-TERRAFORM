@@ -1,0 +1,2 @@
+NO_VERIFICABLE: esta solución de referencia no ejecutó el comando contra una sesión AWS Academy. El archivo conserva la marca exigida por la rúbrica y no inventa una salida.
+Resultado esperado: VPC, subnet, Security Group y EC2; el data source resuelve una AMI existente.
