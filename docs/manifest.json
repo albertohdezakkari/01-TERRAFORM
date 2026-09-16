@@ -1,0 +1,26 @@
+{
+  "courseTitle": "Terraform + AWS Academy",
+  "description": "Cuaderno interactivo de aprendizaje",
+  "exercises": [
+    {"id":"00","tabTitle":"00 — Configuración AWS Academy","title":"00 — Configurar AWS Academy, AWS CLI y Terraform","file":"exercises/00.json"},
+    {"id":"01","tabTitle":"01 — Primera EC2","title":"01 — Crear tu primera EC2 con Terraform","file":"exercises/01.json"},
+    {"id":"02","tabTitle":"02 — Primer bucket S3","title":"02 — Crear tu primer bucket S3 con Terraform","file":"exercises/02.json"},
+    {"id":"03","tabTitle":"03 — Entender una VPC","title":"03 — Entender y crear una VPC","file":"exercises/03.json"},
+    {"id":"04","tabTitle":"04 — Crear dos subredes","title":"04 — Dividir una VPC en dos subredes","file":"exercises/04.json"},
+    {"id":"05","tabTitle":"05 — Security Groups","title":"05 — Proteger recursos con Security Groups","file":"exercises/05.json"},
+    {"id":"06","tabTitle":"06 — Internet Gateway y rutas","title":"06 — Conectar una subnet a Internet","file":"exercises/06.json"},
+    {"id":"07","tabTitle":"07 — EC2 dentro de una subnet","title":"07 — Crear una EC2 dentro de nuestra subnet","file":"exercises/07.json"},
+    {"id":"08","tabTitle":"08 — El proyecto empieza a crecer","title":"08 — Cuando main.tf empieza a crecer","file":"exercises/08.json"},
+    {"id":"09","tabTitle":"09 — Variables en Terraform","title":"09 — Introducir variables en Terraform","file":"exercises/09.json"},
+    {"id":"10","tabTitle":"10 — tfvars y entornos","title":"10 — Reutilizar código con tfvars y entornos","file":"exercises/10.json"},
+    {"id":"11","tabTitle":"11 — Outputs","title":"11 — Mostrar resultados con outputs","file":"exercises/11.json"},
+    {"id":"12","tabTitle":"12 — Data sources","title":"12 — Consultar AWS con data sources","file":"exercises/12.json"},
+    {"id":"13","tabTitle":"13 — Dependencias Terraform","title":"13 — Entender las dependencias de Terraform","file":"exercises/13.json"},
+    {"id":"14","tabTitle":"14 — Modificar infraestructura","title":"14 — Modificar infraestructura y leer terraform plan","file":"exercises/14.json"},
+    {"id":"15","tabTitle":"15 — Drift","title":"15 — Detectar drift entre Terraform y AWS","file":"exercises/15.json"},
+    {"id":"16","tabTitle":"16 — Import","title":"16 — Importar infraestructura existente","file":"exercises/16.json"},
+    {"id":"17","tabTitle":"17 — count","title":"17 — Crear varios recursos con count","file":"exercises/17.json"},
+    {"id":"18","tabTitle":"18 — for_each","title":"18 — Crear recursos identificados con for_each","file":"exercises/18.json"},
+    {"id":"19","tabTitle":"19 — Proyecto integrador","title":"19 — Proyecto integrador Terraform","file":"exercises/19.json"}
+  ]
+}
