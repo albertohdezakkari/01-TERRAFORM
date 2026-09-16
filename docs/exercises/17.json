@@ -1,0 +1,23 @@
+{
+  "id": "17",
+  "tabTitle": "17 — count",
+  "title": "17 — Crear varios recursos con count",
+  "blocks": [
+    {"type":"OBJETIVOS","lines":["• Evitar duplicar bloques casi iguales.","• Entender count y count.index.","• Crear varias subnets de forma repetitiva."]},
+    {"type":"INTRODUCCION","lines":["Después de escribir varios recursos parecidos aparece un nuevo problema: repetimos demasiado código. count permite crear varias instancias del mismo bloque."]},
+    {"type":"CONCEPTO","lines":["¿Qué es count?","Es un meta-argumento de Terraform que indica cuántas instancias de un recurso deben crearse."]},
+    {"type":"CONCEPTO","lines":["¿Qué es count.index?","Es el índice numérico de cada instancia, empezando en 0."]},
+    {"type":"PASO","lines":["1. Crea terraform-17-count."]},
+    {"type":"CODIGO:TERRAFORM","lines":["provider \"aws\" {","  region = \"us-east-1\"","}","","resource \"aws_vpc\" \"vpc_aula\" {","  cidr_block = \"10.80.0.0/16\"","}","","resource \"aws_subnet\" \"subnets\" {","  count = 3","","  vpc_id     = aws_vpc.vpc_aula.id","  cidr_block = cidrsubnet(aws_vpc.vpc_aula.cidr_block, 8, count.index + 1)","","  tags = {","    Name = \"subnet-${count.index + 1}\"","  }","}"]},
+    {"type":"CONCEPTO","lines":["¿Qué hace cidrsubnet?","Calcula subredes a partir de un CIDR base. Aquí toma la VPC /16, añade 8 bits para obtener /24 y utiliza un índice diferente para cada subnet."]},
+    {"type":"CALCULO","lines":["CIDR base: /16","Bits añadidos: 8","16 + 8 = /24","count.index + 1 produce 1, 2 y 3."]},
+    {"type":"COMANDO","lines":["terraform init","terraform plan"]},
+    {"type":"RESULTADO_ESPERADO","lines":["Terraform debe proponer una VPC y tres subnets."]},
+    {"type":"PREGUNTA","lines":["¿Qué valores toma count.index cuando count = 3?"]},
+    {"type":"RESPUESTA","lines":["0, 1 y 2."]},
+    {"type":"RETO","lines":["Cambia count a 4 y revisa el plan."]},
+    {"type":"SOLUCION","lines":["Terraform debe proponer una cuarta subnet sin duplicar el bloque resource."]},
+    {"type":"IDEA_CLAVE","lines":["count reduce repetición cuando necesitamos varias instancias muy similares de un mismo recurso."]},
+    {"type":"CHECKPOINT","lines":["Puedo explicar count, count.index y cómo se generan varias subnets desde un único bloque."]}
+  ]
+}
