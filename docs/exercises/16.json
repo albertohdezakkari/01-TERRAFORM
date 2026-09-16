@@ -1,0 +1,24 @@
+{
+  "id": "16",
+  "tabTitle": "16 — Import",
+  "title": "16 — Importar infraestructura existente",
+  "blocks": [
+    {"type":"OBJETIVOS","lines":["• Entender qué problema resuelve terraform import.","• Incorporar a Terraform un recurso creado fuera del proyecto.","• Diferenciar configuración, estado y recurso real."]},
+    {"type":"INTRODUCCION","lines":["A veces un recurso ya existe en AWS antes de que exista nuestro proyecto Terraform. Import permite asociarlo al estado de Terraform."]},
+    {"type":"CONCEPTO","lines":["¿Qué hace terraform import?","Asocia un recurso existente con una dirección de recurso Terraform. Importar no sustituye la necesidad de escribir la configuración correspondiente."]},
+    {"type":"PASO","lines":["1. Crea manualmente una VPC sencilla desde AWS Console o utiliza una VPC de laboratorio que puedas identificar claramente."]},
+    {"type":"AYUDA","lines":["No utilices recursos compartidos o críticos. Hazlo solo en el laboratorio de prácticas."]},
+    {"type":"PASO","lines":["2. Crea una carpeta terraform-16-import y un main.tf con el bloque que representará esa VPC."]},
+    {"type":"CODIGO:TERRAFORM","lines":["provider \"aws\" {","  region = \"us-east-1\"","}","","resource \"aws_vpc\" \"vpc_importada\" {","  cidr_block = \"10.70.0.0/16\"","}"]},
+    {"type":"PASO","lines":["3. Copia el ID real de la VPC existente."]},
+    {"type":"COMANDO","lines":["terraform init","terraform import aws_vpc.vpc_importada vpc-XXXXXXXX"]},
+    {"type":"RESULTADO_ESPERADO","lines":["Terraform debe asociar el recurso real con aws_vpc.vpc_importada en el state."]},
+    {"type":"COMANDO","lines":["terraform state list"]},
+    {"type":"PREGUNTA","lines":["¿terraform import genera automáticamente un main.tf perfecto?"]},
+    {"type":"RESPUESTA","lines":["No. Import relaciona el recurso real con el estado. La configuración debe reflejar correctamente el recurso gestionado."]},
+    {"type":"RETO","lines":["Ejecuta terraform plan después del import y analiza cualquier diferencia."]},
+    {"type":"SOLUCION","lines":["Las diferencias indican que la configuración escrita no coincide exactamente con el recurso existente."]},
+    {"type":"IDEA_CLAVE","lines":["Import sirve para empezar a gestionar con Terraform recursos que ya existían."]},
+    {"type":"CHECKPOINT","lines":["Puedo explicar la relación entre un recurso real, su bloque resource y su entrada en Terraform state."]}
+  ]
+}
