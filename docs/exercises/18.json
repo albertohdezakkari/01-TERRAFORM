@@ -1,0 +1,21 @@
+{
+  "id": "18",
+  "tabTitle": "18 — for_each",
+  "title": "18 — Crear recursos identificados con for_each",
+  "blocks": [
+    {"type":"OBJETIVOS","lines":["• Entender cuándo for_each es más expresivo que count.","• Crear recursos a partir de un mapa.","• Acceder a each.key y each.value."]},
+    {"type":"INTRODUCCION","lines":["count funciona bien para elementos casi idénticos. Cuando cada recurso tiene una identidad o valor propio, for_each suele ser más claro."]},
+    {"type":"CONCEPTO","lines":["¿Qué es for_each?","Permite crear una instancia de un recurso por cada elemento de un mapa o conjunto."]},
+    {"type":"CONCEPTO","lines":["¿Qué son each.key y each.value?","each.key es la clave del elemento actual y each.value su valor asociado."]},
+    {"type":"PASO","lines":["1. Crea terraform-18-for-each."]},
+    {"type":"CODIGO:TERRAFORM","lines":["provider \"aws\" {","  region = \"us-east-1\"","}","","resource \"aws_vpc\" \"vpc_aula\" {","  cidr_block = \"10.90.0.0/16\"","}","","locals {","  subnets = {","    publica = \"10.90.1.0/24\"","    privada = \"10.90.2.0/24\"","  }","}","","resource \"aws_subnet\" \"subnets\" {","  for_each = local.subnets","","  vpc_id     = aws_vpc.vpc_aula.id","  cidr_block = each.value","","  tags = {","    Name = each.key","  }","}"]},
+    {"type":"COMANDO","lines":["terraform init","terraform plan"]},
+    {"type":"RESULTADO_ESPERADO","lines":["Terraform debe proponer dos subnets identificadas como publica y privada."]},
+    {"type":"PREGUNTA","lines":["¿Qué ventaja tiene usar las claves publica y privada frente a índices 0 y 1?"]},
+    {"type":"RESPUESTA","lines":["La identidad del recurso es más explícita y estable: sabemos qué representa cada instancia sin depender solo de una posición numérica."]},
+    {"type":"RETO","lines":["Añade una tercera entrada administracion = \"10.90.3.0/24\"."]},
+    {"type":"SOLUCION","lines":["Terraform propondrá una nueva instancia aws_subnet.subnets[\"administracion\"]."]},
+    {"type":"IDEA_CLAVE","lines":["for_each es útil cuando cada recurso tiene una identidad lógica propia."]},
+    {"type":"CHECKPOINT","lines":["Puedo explicar la diferencia conceptual entre count y for_each y utilizar each.key y each.value."]}
+  ]
+}
